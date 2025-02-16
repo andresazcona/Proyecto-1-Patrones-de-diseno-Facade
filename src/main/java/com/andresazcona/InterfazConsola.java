@@ -9,8 +9,8 @@ public class InterfazConsola {
     private final ClearFinanceFacade facade = new ClearFinanceFacade();
 
     // 🔹 Rutas por defecto
-    private static final String RUTA_ENTRADA_DEFAULT = "C:\\Users\\andre\\Documents\\Arquitectura de Software\\ClearFinance\\src\\main\\resources\\reportes";
-    private static final String RUTA_SALIDA_DEFAULT = "C:\\Users\\andre\\Documents\\Arquitectura de Software\\ClearFinance\\src\\main\\resources\\salida";
+    private static final String RUTA_ENTRADA_DEFAULT = "src\\main\\resources\\reportes";
+    private static final String RUTA_SALIDA_DEFAULT = "src\\main\\resources\\salida";
 
     public void iniciar() {
         mostrarTitulo();
