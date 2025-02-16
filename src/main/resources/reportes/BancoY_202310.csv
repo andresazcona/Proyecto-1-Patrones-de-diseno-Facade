@@ -1,3 +1,76 @@
 Fecha,Descripción,Monto,Tipo
 2023-10-01,Pago de Servicios,100.00,Gasto
 2023-10-03,Transferencia Recibida,500.00,Ingreso
+2023-10-05,Compra en Supermercado,250.00,Gasto
+2023-10-07,Depósito de Nómina,1500.00,Ingreso
+2023-10-09,Compra en Restaurante,80.00,Gasto
+2023-10-11,Retiro en Cajero,200.00,Gasto
+2023-10-13,Ingreso por Freelance,700.00,Ingreso
+2023-10-15,Compra en Farmacia,45.00,Gasto
+2023-10-17,Transferencia a Ahorros,400.00,Gasto
+2023-10-19,Compra en Electrónica,900.00,Gasto
+2023-10-21,Ingreso por Venta Online,300.00,Ingreso
+2023-10-23,Compra en Gasolinera,100.00,Gasto
+2023-10-25,Depósito de Nómina,1500.00,Ingreso
+2023-10-27,Compra en Tienda de Ropa,220.00,Gasto
+2023-10-29,Retiro en Cajero,180.00,Gasto
+2023-10-31,Ingreso por Freelance,600.00,Ingreso
+2023-11-02,Compra en Restaurante,120.00,Gasto
+2023-11-04,Compra en Supermercado,260.00,Gasto
+2023-11-06,Ingreso por Venta Online,400.00,Ingreso
+2023-11-08,Recarga de Celular,35.00,Gasto
+2023-11-10,Pago de Servicios,110.00,Gasto
+2023-11-12,Depósito de Nómina,1500.00,Ingreso
+2023-11-14,Compra en Farmacia,50.00,Gasto
+2023-11-16,Ingreso por Freelance,750.00,Ingreso
+2023-11-18,Compra en Librería,80.00,Gasto
+2023-11-20,Compra en Gasolinera,95.00,Gasto
+2023-11-22,Transferencia a Ahorros,500.00,Gasto
+2023-11-24,Compra en Restaurante,140.00,Gasto
+2023-11-26,Ingreso por Venta Online,350.00,Ingreso
+2023-11-28,Compra en Tienda de Ropa,240.00,Gasto
+2023-11-30,Retiro en Cajero,210.00,Gasto
+2023-12-02,Depósito de Nómina,1500.00,Ingreso
+2023-12-04,Compra en Supermercado,280.00,Gasto
+2023-12-06,Ingreso por Freelance,800.00,Ingreso
+2023-12-08,Pago de Servicios,120.00,Gasto
+2023-12-10,Compra en Electrónica,1100.00,Gasto
+2023-12-12,Transferencia a Ahorros,550.00,Gasto
+2023-12-14,Compra en Gasolinera,110.00,Gasto
+2023-12-16,Ingreso por Venta Online,450.00,Ingreso
+2023-12-18,Compra en Farmacia,60.00,Gasto
+2023-12-20,Recarga de Celular,40.00,Gasto
+2023-12-22,Compra en Restaurante,160.00,Gasto
+2023-12-24,Depósito de Nómina,1500.00,Ingreso
+2023-12-26,Compra en Supermercado,290.00,Gasto
+2023-12-28,Ingreso por Freelance,850.00,Ingreso
+2023-12-30,Compra en Tienda de Ropa,260.00,Gasto
+2024-01-02,Retiro en Cajero,230.00,Gasto
+2024-01-04,Ingreso por Venta Online,500.00,Ingreso
+2024-01-06,Compra en Gasolinera,115.00,Gasto
+2024-01-08,Transferencia a Ahorros,600.00,Gasto
+2024-01-10,Compra en Restaurante,170.00,Gasto
+2024-01-12,Depósito de Nómina,1500.00,Ingreso
+2024-01-14,Compra en Farmacia,70.00,Gasto
+2024-01-16,Ingreso por Freelance,900.00,Ingreso
+2024-01-18,Compra en Librería,90.00,Gasto
+2024-01-20,Compra en Electrónica,1200.00,Gasto
+2024-01-22,Recarga de Celular,50.00,Gasto
+2024-01-24,Compra en Tienda de Ropa,280.00,Gasto
+2024-01-26,Depósito de Nómina,1500.00,Ingreso
+2024-01-28,Compra en Gasolinera,120.00,Gasto
+2024-01-30,Ingreso por Venta Online,550.00,Ingreso
+2024-02-02,Compra en Supermercado,300.00,Gasto
+2024-02-04,Transferencia a Ahorros,650.00,Gasto
+2024-02-06,Compra en Restaurante,180.00,Gasto
+2024-02-08,Ingreso por Freelance,950.00,Ingreso
+2024-02-10,Compra en Farmacia,80.00,Gasto
+2024-02-12,Pago de Servicios,130.00,Gasto
+2024-02-14,Recarga de Celular,60.00,Gasto
+2024-02-16,Compra en Tienda de Ropa,300.00,Gasto
+2024-02-18,Depósito de Nómina,1500.00,Ingreso
+2024-02-20,Compra en Supermercado,310.00,Gasto
+2024-02-22,Ingreso por Venta Online,600.00,Ingreso
+2024-02-24,Compra en Electrónica,1300.00,Gasto
+2024-02-26,Transferencia a Ahorros,700.00,Gasto
+2024-02-28,Compra en Restaurante,190.00,Gasto
