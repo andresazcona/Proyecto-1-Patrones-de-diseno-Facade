@@ -8,6 +8,10 @@ import com.andresazcona.services.ProcesadorDatos;
 import java.io.File;
 import java.util.List;
 
+/**
+ * Fachada para la gestión de la extracción, procesamiento y generación de informes financieros.
+ * Encapsula la lógica principal del sistema para facilitar su uso desde la interfaz de usuario.
+ */
 public class ClearFinanceFacade {
     private final ExtractorDatos extractor = new ExtractorDatos();
     private final ProcesadorDatos procesador = new ProcesadorDatos();
@@ -15,6 +19,9 @@ public class ClearFinanceFacade {
 
     /**
      * Genera un informe consolidado en el formato seleccionado.
+     *
+     * Extrae datos de los archivos CSV de una carpeta dada, los procesa eliminando duplicados
+     * y ordenándolos por fecha, y finalmente genera un informe en el formato especificado.
      *
      * @param carpetaEntrada Ruta de la carpeta donde están los archivos CSV de entrada.
      * @param archivoSalida  Ruta del archivo de salida con la extensión correspondiente.
@@ -24,7 +31,7 @@ public class ClearFinanceFacade {
         try {
             System.out.println("\n=== Iniciando proceso de consolidación ===");
 
-            // Contar los archivos CSV disponibles
+            // Contar los archivos CSV disponibles en la carpeta de entrada
             File carpeta = new File(carpetaEntrada);
             File[] archivosCSV = carpeta.listFiles((dir, name) -> name.toLowerCase().endsWith(".csv"));
 
@@ -38,7 +45,7 @@ public class ClearFinanceFacade {
                 System.out.println("   - " + archivo.getName());
             }
 
-            // Extraer transacciones desde los archivos CSV
+            // Extraer transacciones desde los archivos CSV detectados
             List<Transaccion> transacciones = extractor.extraerDatos(carpetaEntrada);
             System.out.println("✓ Total de transacciones extraídas: " + transacciones.size());
 

@@ -7,21 +7,38 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Implementación del adaptador para el banco "BancoX".
+ * Esta clase permite extraer datos de transacciones desde un archivo CSV específico de BancoX
+ * y convertirlos en objetos de tipo {@link Transaccion}.
+ */
 public class BancoXAdapter implements BancoAdapter {
+
+    /**
+     * Extrae una lista de transacciones desde un archivo CSV de BancoX.
+     * Se espera que el archivo tenga un formato de columnas separadas por comas (CSV),
+     * donde la primera línea corresponde a la cabecera.
+     *
+     * @param archivo Archivo CSV que contiene los datos de las transacciones.
+     * @return Lista de transacciones extraídas del archivo.
+     * @throws Exception Si ocurre un error al leer el archivo o procesar los datos.
+     */
     @Override
     public List<Transaccion> extraerDatos(File archivo) throws Exception {
         List<Transaccion> transacciones = new ArrayList<>();
         List<String> lineas = Files.readAllLines(archivo.toPath());
 
-        // Saltar cabecera
+        // Saltar la cabecera y procesar las líneas de datos
         for (int i = 1; i < lineas.size(); i++) {
-            String[] datos = lineas.get(i).split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)");
+            String[] datos = lineas.get(i).split(",(?=([^\"]*\"[^\"]*\")*[^\"]*$)"); // Manejo de comas dentro de comillas
+
+            // Se crea un objeto Transaccion con los datos extraídos
             transacciones.add(new Transaccion(
-                    datos[0].trim(),
-                    datos[1].trim(),
-                    Double.parseDouble(datos[2].trim()),
-                    datos[3].trim(),
-                    "BancoX"
+                    datos[0].trim(),  // ID de la transacción
+                    datos[1].trim(),  // Fecha de la transacción
+                    Double.parseDouble(datos[2].trim()),  // Monto de la transacción
+                    datos[3].trim(),  // Descripción
+                    "BancoX"  // Origen de la transacción
             ));
         }
         return transacciones;

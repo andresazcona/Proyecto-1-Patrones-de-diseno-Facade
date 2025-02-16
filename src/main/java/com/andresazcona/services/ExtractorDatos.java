@@ -8,28 +8,40 @@ import java.io.File;
 import java.io.IOException;
 import java.util.*;
 
+/**
+ * Servicio encargado de extraer y unificar transacciones desde archivos CSV de distintos bancos.
+ * Utiliza adaptadores específicos para cada banco detectado en los nombres de archivo.
+ */
 public class ExtractorDatos {
     private final Map<String, BancoAdapter> adaptadores = new HashMap<>();
 
+    /**
+     * Constructor de la clase. Inicializa los adaptadores de bancos soportados.
+     */
     public ExtractorDatos() {
         adaptadores.put("bancox", new BancoXAdapter());
         adaptadores.put("bancony", new BancoYAdapter());
     }
 
     /**
-     * Extrae datos de todos los archivos CSV en la carpeta de entrada.
+     * Extrae datos de todos los archivos CSV dentro de una carpeta dada.
+     * Detecta automáticamente el banco correspondiente según el nombre del archivo y utiliza
+     * el adaptador adecuado para procesar los datos.
      *
-     * @param carpetaEntrada Ruta de la carpeta con los archivos CSV.
+     * @param carpetaEntrada Ruta de la carpeta que contiene los archivos CSV.
      * @return Lista combinada de todas las transacciones extraídas.
+     * @throws Exception Si la carpeta no existe o no contiene archivos CSV válidos.
      */
     public List<Transaccion> extraerDatos(String carpetaEntrada) throws Exception {
         List<Transaccion> todasTransacciones = new ArrayList<>();
         File directorio = new File(carpetaEntrada);
 
+        // Validar si el directorio existe
         if (!directorio.exists()) {
             throw new IOException("❌ El directorio de reportes no existe.");
         }
 
+        // Filtrar archivos CSV dentro del directorio
         File[] archivosCSV = directorio.listFiles((dir, nombre) ->
                 nombre.toLowerCase().endsWith(".csv"));
 
@@ -38,20 +50,23 @@ public class ExtractorDatos {
         }
 
         System.out.println("✓ Archivos detectados: " + archivosCSV.length);
+
+        // Procesar cada archivo CSV detectado
         for (File archivo : archivosCSV) {
             System.out.println("   - Procesando: " + archivo.getName());
 
             String nombreArchivo = archivo.getName().toLowerCase();
             List<Transaccion> transaccionesArchivo = new ArrayList<>();
 
-            // 🔹 Detectar correctamente el banco
+            // Detectar el banco correspondiente según el nombre del archivo
             BancoAdapter adapter = null;
             if (nombreArchivo.contains("bancox")) {
                 adapter = adaptadores.get("bancox");
-            } else if (nombreArchivo.contains("bancoy")) {  // 🔹 Asegurar que detecte correctamente BancoY
+            } else if (nombreArchivo.contains("bancony")) {
                 adapter = adaptadores.get("bancony");
             }
 
+            // Si se encuentra un adaptador adecuado, extraer datos
             if (adapter != null) {
                 transaccionesArchivo = adapter.extraerDatos(archivo);
                 System.out.println("   → Transacciones extraídas de " + archivo.getName() + ": " + transaccionesArchivo.size());

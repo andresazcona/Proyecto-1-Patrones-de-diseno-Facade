@@ -4,6 +4,10 @@ import java.util.Scanner;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Interfaz de consola para la interacción con el usuario en la generación de informes financieros.
+ * Permite ingresar rutas de entrada y salida, seleccionar formato de exportación y generar el informe consolidado.
+ */
 public class InterfazConsola {
     private final Scanner scanner = new Scanner(System.in);
     private final ClearFinanceFacade facade = new ClearFinanceFacade();
@@ -12,11 +16,17 @@ public class InterfazConsola {
     private static final String RUTA_ENTRADA_DEFAULT = "src\\main\\resources\\reportes";
     private static final String RUTA_SALIDA_DEFAULT = "src\\main\\resources\\salida";
 
+    /**
+     * Inicia la interfaz de consola mostrando el título y ejecutando el flujo de generación del informe.
+     */
     public void iniciar() {
         mostrarTitulo();
         generarInforme();  // 🔹 Se ejecuta y se cierra inmediatamente
     }
 
+    /**
+     * Muestra el título de la aplicación en la consola con un pequeño retraso para mejorar la experiencia del usuario.
+     */
     private void mostrarTitulo() {
         System.out.println("\n============================================");
         System.out.println("  ClearFinance - Software de Unificación de Reportes  ");
@@ -25,6 +35,10 @@ public class InterfazConsola {
         esperar(1000);
     }
 
+    /**
+     * Ejecuta el flujo de generación del informe, solicitando al usuario las rutas de entrada y salida,
+     * el nombre del archivo y el formato deseado.
+     */
     private void generarInforme() {
         try {
             // Pedir carpeta de entrada con opción de ruta por defecto
@@ -88,6 +102,9 @@ public class InterfazConsola {
 
     /**
      * Valida si la carpeta ingresada existe y contiene archivos.
+     *
+     * @param ruta Ruta de la carpeta a validar.
+     * @return {@code true} si la carpeta existe y es válida, {@code false} en caso contrario.
      */
     private boolean validarCarpeta(String ruta) {
         File carpeta = new File(ruta);
@@ -95,7 +112,9 @@ public class InterfazConsola {
     }
 
     /**
-     * Permite seleccionar el formato con números.
+     * Permite seleccionar el formato de salida mediante una opción numérica ingresada por el usuario.
+     *
+     * @return El formato seleccionado como cadena ("csv", "xlsx" o "pdf"), o {@code null} si la opción es inválida.
      */
     private String seleccionarFormato() {
         while (true) {
@@ -120,7 +139,9 @@ public class InterfazConsola {
     }
 
     /**
-     * Pausa la ejecución por un tiempo determinado (en milisegundos).
+     * Pausa la ejecución por un tiempo determinado para mejorar la experiencia del usuario.
+     *
+     * @param milisegundos Cantidad de milisegundos a esperar.
      */
     private void esperar(int milisegundos) {
         try {

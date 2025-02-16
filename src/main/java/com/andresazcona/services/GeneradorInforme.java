@@ -12,16 +12,25 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.List;
 
+/**
+ * Servicio encargado de generar informes en diferentes formatos (CSV, Excel y PDF)
+ * a partir de una lista de transacciones. Incluye un resumen de ingresos, gastos y saldo final.
+ */
 public class GeneradorInforme {
     private static final SimpleDateFormat SDF = new SimpleDateFormat("yyyy-MM-dd");
 
     /**
-     * Genera un informe en formato CSV con un resumen de ingresos, gastos y saldo.
+     * Genera un informe en formato CSV con los datos de las transacciones,
+     * incluyendo un resumen de ingresos, gastos y saldo final.
+     *
+     * @param transacciones Lista de transacciones a incluir en el informe.
+     * @param archivoSalida Ruta donde se guardará el archivo CSV generado.
      */
     public void generarInformeCSV(List<Transaccion> transacciones, String archivoSalida) {
         double totalIngresos = 0;
         double totalGastos = 0;
 
+        // Calcular ingresos y gastos
         for (Transaccion t : transacciones) {
             if (t.getTipo().equalsIgnoreCase("Ingreso")) {
                 totalIngresos += t.getMonto();
@@ -55,12 +64,17 @@ public class GeneradorInforme {
     }
 
     /**
-     * Genera un informe en formato Excel con un resumen de ingresos, gastos y saldo.
+     * Genera un informe en formato Excel con los datos de las transacciones,
+     * incluyendo un resumen de ingresos, gastos y saldo final.
+     *
+     * @param transacciones Lista de transacciones a incluir en el informe.
+     * @param archivoSalida Ruta donde se guardará el archivo Excel generado.
      */
     public void generarInformeExcel(List<Transaccion> transacciones, String archivoSalida) {
         double totalIngresos = 0;
         double totalGastos = 0;
 
+        // Calcular ingresos y gastos
         for (Transaccion t : transacciones) {
             if (t.getTipo().equalsIgnoreCase("Ingreso")) {
                 totalIngresos += t.getMonto();
@@ -112,12 +126,17 @@ public class GeneradorInforme {
     }
 
     /**
-     * Genera un informe en formato PDF con un resumen de ingresos, gastos y saldo.
+     * Genera un informe en formato PDF con los datos de las transacciones,
+     * incluyendo un resumen de ingresos, gastos y saldo final.
+     *
+     * @param transacciones Lista de transacciones a incluir en el informe.
+     * @param archivoSalida Ruta donde se guardará el archivo PDF generado.
      */
     public void generarInformePDF(List<Transaccion> transacciones, String archivoSalida) {
         double totalIngresos = 0;
         double totalGastos = 0;
 
+        // Calcular ingresos y gastos
         for (Transaccion t : transacciones) {
             if (t.getTipo().equalsIgnoreCase("Ingreso")) {
                 totalIngresos += t.getMonto();
